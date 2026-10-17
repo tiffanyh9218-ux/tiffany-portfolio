@@ -1,0 +1,593 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Tiffany Harris | Operations &amp; AI Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Editorial layout: one reading column, serif headlines, thin rules, and case studies as a list.
+   Palette: paper and ink with one slate-teal accent. */
+:root {
+  --bg: #f8f8f6;
+  --ink: #17191c;
+  --muted: #5d6169;
+  --rule: #d9dbdf;
+  --accent: #1f5063;
+  --accent-soft: #e4eef2;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111315;
+    --ink: #eceef1;
+    --muted: #9aa1ab;
+    --rule: #2a2e35;
+    --accent: #8cc3d6;
+    --accent-soft: #1a2a31;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111315;
+  --ink: #eceef1;
+  --muted: #9aa1ab;
+  --rule: #2a2e35;
+  --accent: #8cc3d6;
+  --accent-soft: #1a2a31;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); margin: 0; line-height: 1.15; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.col { max-width: 760px; margin: 0 auto; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--rule);
+}
+.top .col { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; min-height: 56px; padding-block: 8px; }
+.top .name { font-family: var(--serif); font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; }
+.top nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; padding: 6px 10px; border-radius: 6px; }
+.top nav a:hover, .top nav a.active { color: var(--ink); }
+.top nav a.active { box-shadow: inset 0 -2px 0 var(--accent); }
+.theme-btn {
+  font: inherit; font-size: 14px; color: var(--ink); background: transparent;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 5px 12px; cursor: pointer; margin-left: 6px;
+}
+
+/* Hero */
+.hero { padding-block: 72px 56px; }
+.hero h1 { font-size: clamp(38px, 6.5vw, 58px); font-weight: 700; letter-spacing: -0.01em; max-width: 20ch; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lead { font-size: 20px; color: var(--muted); max-width: 52ch; margin-top: 22px; }
+.meta-line { margin-top: 22px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  font: inherit; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
+  padding: 11px 18px; border-radius: 6px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--bg); display: inline-block;
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+
+/* Screenshots of live work */
+.shots { position: relative; margin: 0 0 64px; display: grid; gap: 16px; grid-template-columns: 1fr; isolation: isolate; }
+@media (min-width: 720px) { .shots { grid-template-columns: 1fr 1fr 1fr; align-items: center; } }
+.shots::before {
+  content: ""; position: absolute; inset: -12% -6% auto -6%; height: 70%; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 70% at 30% 40%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%);
+  filter: blur(28px);
+}
+.shots img {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border-radius: 14px; background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 24px 48px -12px rgba(0,0,0,.28);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.shots { perspective: 1400px; }
+.shots img { transform-origin: center; transform: rotateY(12deg) rotateX(4deg); }
+.shots img:nth-child(2) { transform: rotateY(0deg) rotateX(0deg); }
+.shots img:nth-child(3) { transform: rotateY(-12deg) rotateX(4deg); }
+.shots img:hover { position: relative; z-index: 2; transform: rotateY(0deg) rotateX(0deg) translateZ(40px) scale(1.04); box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 32px 60px -14px rgba(0,0,0,.35); }
+@media (prefers-reduced-motion: reduce) { .shots img { transition: none; } }
+
+/* Hover enlargement overlay */
+.zoom { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: transparent; pointer-events: none; padding: 20px; }
+.zoom[hidden] { display: none; }
+.zoom img { max-width: min(62vw, 560px); max-height: 56vh; width: auto; height: auto; border-radius: 14px; box-shadow: 0 40px 90px -20px rgba(0, 0, 0, .6); }
+
+/* 3D ring of screenshots */
+.ring { position: relative; height: 260px; margin: 0 0 64px; perspective: 1200px; isolation: isolate; border-radius: 22px; }
+.ring::before {
+  content: ""; position: absolute; inset: 0; border-radius: 22px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 18% 25%, rgba(110, 70, 255, .38), transparent 60%),
+    radial-gradient(ellipse 55% 65% at 82% 78%, rgba(30, 170, 220, .30), transparent 62%),
+    radial-gradient(circle 9px at 88% 22%, rgba(255, 210, 140, .9), rgba(255, 180, 90, .25) 60%, transparent 72%),
+    radial-gradient(1.2px 1.2px at 12% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 70%, #cfe9ff, transparent),
+    radial-gradient(1.5px 1.5px at 44% 35%, #fff, transparent),
+    radial-gradient(1px 1px at 63% 14%, #bfe3ff, transparent),
+    radial-gradient(1.2px 1.2px at 74% 56%, #fff, transparent),
+    radial-gradient(1px 1px at 92% 64%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 86%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 55% 88%, #fff, transparent),
+    radial-gradient(1px 1px at 37% 10%, #fff, transparent),
+    linear-gradient(180deg, #070b1a 0%, #03050c 100%);
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: .72; } to { opacity: 1; } }
+.ring-track { position: absolute; left: 50%; top: 50%; width: 300px; height: 190px; margin: -95px 0 0 -150px; transform-style: preserve-3d; animation: ring-spin 22s linear infinite; }
+.ring:hover .ring-track { animation-play-state: paused; }
+.ring-track img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); box-shadow: 0 0 34px rgba(120, 180, 255, .35), 0 18px 40px -12px rgba(0,0,0,.6); backface-visibility: visible; transform: rotateY(calc(var(--i) * 120deg)) translateZ(260px); }
+.ring-track img:nth-child(1) { --i: 0; }
+.ring-track img:nth-child(2) { --i: 1; }
+.ring-track img:nth-child(3) { --i: 2; }
+@keyframes ring-spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ring-track { animation: none; } }
+
+/* Proof strip */
+.proof {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 720px) { .proof { grid-template-columns: repeat(4, 1fr); } }
+.stat { padding: 22px 18px 22px 0; }
+.stat + .stat { padding-left: 18px; border-left: 1px solid var(--rule); }
+.stat b { display: block; font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; }
+.stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.35; }
+
+/* Sections */
+section.block { padding-block: 64px 0; }
+h2 { font-size: clamp(28px, 4vw, 36px); font-weight: 700; margin-bottom: 24px; }
+.prose p { margin-bottom: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* Case studies: a list, not cards */
+.filters { display: flex; gap: 6px 18px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip {
+  font: inherit; font-size: 15px; cursor: pointer; background: none; border: 0; padding: 4px 0;
+  color: var(--muted); border-bottom: 1px solid transparent;
+}
+.chip[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.cases { border-top: 1px solid var(--rule); }
+.case { padding-block: 28px; border-bottom: 1px solid var(--rule); }
+.case[hidden] { display: none; }
+.case h3 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.case .tags { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-bottom: 14px; letter-spacing: .02em; }
+.case dl { margin: 0; display: grid; gap: 12px; }
+.case dl > div { display: grid; grid-template-columns: 110px 1fr; gap: 14px; }
+@media (max-width: 560px) { .case dl > div { grid-template-columns: 1fr; gap: 2px; } }
+.case dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); padding-top: 3px; }
+.case dd { margin: 0; color: var(--ink); font-size: 17px; }
+.case .foot { margin-top: 14px; font-size: 15px; color: var(--muted); }
+
+/* Experience */
+.timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.timeline li {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding-block: 18px; border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 560px) { .timeline li { grid-template-columns: 1fr; } }
+.timeline .role { font-family: var(--serif); font-weight: 600; font-size: 19px; }
+.timeline .where { color: var(--muted); grid-column: 1; font-size: 16px; }
+.timeline .when { font-family: var(--mono); font-size: 13px; color: var(--muted); grid-row: 1; grid-column: 2; text-align: right; padding-top: 4px; }
+@media (max-width: 560px) { .timeline .when { grid-column: 1; grid-row: auto; text-align: left; } }
+
+/* Skills */
+.skill-groups { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .skill-groups { grid-template-columns: 1fr 1fr; } }
+.skill-groups h3 { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.skill-groups ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-groups li { font-size: 15px; padding: 3px 9px; border: 1px solid var(--rule); border-radius: 4px; }
+
+/* Contact */
+.contact h2 { font-size: clamp(32px, 5vw, 44px); }
+.contact-lines { margin-top: 24px; border-top: 1px solid var(--rule); }
+.line {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding-block: 14px; border-bottom: 1px solid var(--rule);
+}
+.line .val { font-family: var(--mono); font-size: 16px; overflow-wrap: anywhere; min-width: 0; user-select: all; }
+.line button { font: inherit; font-size: 14px; color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.toast { font-size: 14px; color: var(--muted); min-height: 1.4em; margin-top: 12px; }
+
+footer { max-width: 760px; margin: 0 auto; padding-top: 40px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--rule); }
+footer a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+</style>
+
+<body>
+
+<header class="top">
+  <div class="col">
+    <a class="name" href="#top">Tiffany Harris · Portfolio</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" type="button" id="theme" aria-label="Switch light or dark theme">Dark</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="col">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="label">Professional portfolio · Tiffany Harris</p>
+      <h1 id="hero-title">Operations and <em>AI</em> leadership for remote teams.</h1>
+      <p class="lead">Seven-plus years leading distributed teams in collections, commission payroll, call centers, and CRM systems. I build the AI front desks, command centers, and automation that let those teams run accurately, every day.</p>
+      <p class="meta-line">Remote · Saint Charles, MO · Open to fully remote roles</p>
+      <div class="cta-row">
+        <a class="btn" href="#work">See the work</a>
+        <a class="btn ghost" href="https://upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">Try the AI front desk</a>
+      </div>
+    </section>
+
+    <div class="ring" aria-label="Screenshots of live work"><div class="ring-track">
+      <img src="consulting-home.jpg" alt="Upfront Consulting homepage: operations and automation for service businesses" loading="eager">
+      <img src="front-desk-demo.jpg" alt="Upfront Consulting AI front desk: live voice demo on the website" loading="eager">
+      <img src="travel-home.jpg" alt="Upfront Travel homepage with a live trip-price estimator" loading="eager">
+    </div></div>
+
+    <div class="proof" aria-label="Key results">
+      <div class="stat"><b>44%</b><span>faster billing-dispute resolution</span></div>
+      <div class="stat"><b>$2.5M</b><span>in weekly collections supported</span></div>
+      <div class="stat"><b>595+</b><span>prospect records in one CRM</span></div>
+      <div class="stat"><b>266</b><span>automated tests across client kits</span></div>
+    </div>
+
+    <section class="block" id="live" aria-labelledby="live-title">
+      <p class="label">Live work</p>
+      <h2 id="live-title">Open these now</h2>
+      <div class="contact-lines">
+        <div class="line">
+          <span class="val"><a href="https://upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">upfrontconsultingwithtiffandreco.com</a></span>
+          <a class="btn ghost" href="https://upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">Open site</a>
+        </div>
+        <div class="line">
+          <span class="val">Front desk AI: chat and voice demo on the site</span>
+          <a class="btn ghost" href="https://upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">Try the demo</a>
+        </div>
+        <div class="line">
+          <span class="val"><a href="https://travel.upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">travel.upfrontconsultingwithtiffandreco.com</a></span>
+          <a class="btn ghost" href="https://travel.upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">Open site</a>
+        </div>
+        <div class="line">
+          <span class="val"><a href="https://claude.ai/artifact/EU1ezw6r6dEfXmmL9tC61J" target="_blank" rel="noopener">Work samples: A/R tracker, QA scoring, training, Salesforce flow</a></span>
+          <a class="btn ghost" href="https://claude.ai/artifact/EU1ezw6r6dEfXmmL9tC61J" target="_blank" rel="noopener">View samples</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="products" aria-labelledby="products-title">
+      <p class="label">Products</p>
+      <h2 id="products-title">What I've built for customers</h2>
+      <p class="prose" style="margin-bottom:20px">Done-for-you systems and self-serve kits, built in the tools each customer already owns.</p>
+      <h3 style="font-size:20px;margin:0 0 6px">Done for you</h3>
+      <div class="contact-lines" style="margin-bottom:28px">
+        <div class="line"><span class="val">AI Desks</span><span class="mono">Sales prep, marketing, operations</span></div>
+        <div class="line"><span class="val">AI Front Desk System</span><span class="mono">24/7 phone and website chat</span></div>
+        <div class="line"><span class="val">Owner Dashboard</span><span class="mono">To-dos, sales, pipeline on one screen</span></div>
+        <div class="line"><span class="val">Past-Due Invoice Follow-Up</span><span class="mono">Reminder sequence on a set schedule</span></div>
+        <div class="line"><span class="val">Google Business Profile Setup</span><span class="mono">Listing set up and maintained</span></div>
+        <div class="line"><span class="val">Lead Response Audit</span><span class="mono">Scorecard in 48 hours</span></div>
+        <div class="line"><span class="val">Operations Checkup</span><span class="mono">Written report and 90-day roadmap</span></div>
+      </div>
+      <h3 style="font-size:20px;margin:0 0 6px">Self-serve kits</h3>
+      <div class="contact-lines">
+        <div class="line"><span class="val">Never Miss a Lead Kit</span></div>
+        <div class="line"><span class="val">Past-Due Invoice Letter Kit</span></div>
+        <div class="line"><span class="val">Small Business Operating System bundle</span></div>
+        <div class="line"><span class="val">Google Business Profile Checklist + 52 Post Ideas</span></div>
+        <div class="line"><span class="val">Small Business AI Prompt Pack</span></div>
+        <div class="line"><span class="val">Listing Lab</span></div>
+        <div class="line"><span class="val">Tracker guide</span></div>
+      </div>
+    </section>
+
+    <section class="block" id="about" aria-labelledby="about-title">
+      <p class="label">About</p>
+      <h2 id="about-title">How I work</h2>
+      <div class="prose">
+        <p>I build the checks, reports, and handoffs myself, so the numbers stay right after the person who built them moves on. Most of my career has been spent on work where mistakes cost money: payroll, commissions, accounts receivable, and collections.</p>
+        <p>Lately I have focused on AI. I score and refine LLM output for accuracy and reasoning, and I build AI agents on the tools a business already runs, such as Google Sheets, Apps Script, and CRM platforms.</p>
+        <p>I have led remote A/R, call center, and sales teams. I set the cadence, the QA, and the dashboards that show who is behind before it matters.</p>
+      </div>
+    </section>
+
+    <section class="block" id="work" aria-labelledby="work-title">
+      <p class="label">Selected work</p>
+      <h2 id="work-title">Case studies</h2>
+
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="ai" aria-pressed="false">AI &amp; automation</button>
+        <button class="chip" type="button" data-filter="ops" aria-pressed="false">Operations</button>
+        <button class="chip" type="button" data-filter="data" aria-pressed="false">Data &amp; finance</button>
+      </div>
+
+      <div class="cases">
+
+        <article class="case" data-cat="ai">
+          <h3>AI front desk for business websites</h3>
+          <p class="tags">AI agent · Apps Script · Gemini · Lead capture</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Visitors who message after hours wait until morning, and good leads go cold.</dd></div>
+            <div><dt>Built</dt><dd>An agent that answers chat and inbox messages around the clock, captures contact details, and logs each lead to a CRM sheet for follow-up.</dd></div>
+            <div><dt>Skills</dt><dd>Prompt design, lead qualification flows, Apps Script integration, data hygiene.</dd></div>
+          </dl>
+          <p class="foot">Live on the <a href="https://upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">Upfront Consulting website</a>. Each client setup connects its own sheet and API key.</p>
+        </article>
+
+        <article class="case" data-cat="ops">
+          <h3>Internal command center for three business units</h3>
+          <p class="tags">Firebase · CRM pipelines · Role-based access</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Requests, leads, and to-dos were split across inboxes, spreadsheets, and separate tools.</dd></div>
+            <div><dt>Built</dt><dd>One web app with a single sign-in that switches between business units. Each unit has its own request inbox, CRM pipeline, and to-do list, plus a sales dashboard.</dd></div>
+            <div><dt>Result</dt><dd>595+ prospect records loaded into one CRM, with source tags and priority levels.</dd></div>
+          </dl>
+          <p class="foot">Live for internal use.</p>
+        </article>
+
+        <article class="case" data-cat="ai">
+          <h3>Reusable client kits for AI and automation</h3>
+          <p class="tags">Apps Script · Automated testing · Client delivery</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Each new client needed the same AI assistant, dashboard, and phone setup rebuilt from scratch, with the same bugs.</dd></div>
+            <div><dt>Built</dt><dd>Templates for AI assistant desks, owner dashboards, and AI phone lines. Each kit is configured per client and ships with automated tests.</dd></div>
+            <div><dt>Result</dt><dd>266 automated tests passing across the kits.</dd></div>
+          </dl>
+          <p class="foot">Built and tested. Not yet deployed for a client.</p>
+        </article>
+
+        <article class="case" data-cat="data">
+          <h3>Commissions data reconciliation during a platform migration</h3>
+          <p class="tags">Data reconciliation · Payroll operations · Documentation</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Commission payouts had to match across old and new payroll platforms, with carriers, pay levels, and reporting hierarchies all involved.</dd></div>
+            <div><dt>Built</dt><dd>Scripted checks that compare payouts, pay levels, and hierarchies between platforms, plus a documented change log so every correction can be traced.</dd></div>
+            <div><dt>Skills</dt><dd>Data reconciliation, scripting, controls, documentation.</dd></div>
+          </dl>
+          <p class="foot">Ongoing work at my current employer.</p>
+        </article>
+
+        <article class="case" data-cat="ops">
+          <h3>Collections and dispute-resolution improvement</h3>
+          <p class="tags">Accounts receivable · Team leadership · Reporting</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Billing disputes sat too long, delaying payments and hurting customer satisfaction.</dd></div>
+            <div><dt>Built</dt><dd>Led a remote A/R team of seven, using automated workflows and delinquency reports to track every open item.</dd></div>
+            <div><dt>Result</dt><dd>Cut dispute resolution time by 44% and supported $2.5M in weekly collections.</dd></div>
+          </dl>
+          <p class="foot">Total Home Roofing &amp; Angi Roofing.</p>
+        </article>
+
+        <article class="case" data-cat="ops">
+          <h3>Travel booking site with live trip pricing</h3>
+          <p class="tags">Web publishing · Pricing tools · Request routing</p>
+          <dl>
+            <div><dt>Problem</dt><dd>Travel shoppers want a real price before they talk to anyone, and requests needed a clear owner and a fast response.</dd></div>
+            <div><dt>Built</dt><dd>A multi-page travel site with a live trip-price estimator covering 15 destinations, plus an Apps Script router that sends each trip request into the CRM for follow-up.</dd></div>
+            <div><dt>Model</dt><dd>Licensed agents book every trip, and nothing is booked without the client's approval. Reply target: one business day.</dd></div>
+          </dl>
+          <p class="foot">Live at <a href="https://travel.upfrontconsultingwithtiffandreco.com/" target="_blank" rel="noopener">travel.upfrontconsultingwithtiffandreco.com</a>. Affiliate of Magical Enchanted Vacations.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="block" id="experience" aria-labelledby="exp-title">
+      <p class="label">Experience</p>
+      <h2 id="exp-title">Where I've worked</h2>
+      <ol class="timeline">
+        <li>
+          <span class="role">Payroll Coordinator &amp; MarTech Advisor</span>
+          <span class="when">Aug 2025 – Present</span>
+          <span class="where">Compass Health Consultants · Remote</span>
+        </li>
+        <li>
+          <span class="role">AI Trainer &amp; Remote Operations Consultant</span>
+          <span class="when">Oct 2025 – Present</span>
+          <span class="where">Upfront Consulting · Remote</span>
+        </li>
+        <li>
+          <span class="role">General Manager / Business Development</span>
+          <span class="when">Jul 2024 – Jul 2025</span>
+          <span class="where">Interstate All Battery Center · Saint Charles, MO</span>
+        </li>
+        <li>
+          <span class="role">Senior Management</span>
+          <span class="when">Jan 2022 – Jun 2024</span>
+          <span class="where">Total Home Roofing &amp; Angi Roofing · Rockledge, FL</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="block" id="skills" aria-labelledby="skills-title">
+      <p class="label">Skills</p>
+      <h2 id="skills-title">Tools and methods</h2>
+      <div class="skill-groups">
+        <div>
+          <h3>AI &amp; automation</h3>
+          <ul>
+            <li>AI training &amp; evaluation</li><li>Prompt engineering</li><li>LLM response scoring</li>
+            <li>Workflow automation</li><li>Google Apps Script</li><li>Data annotation</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Operations &amp; leadership</h3>
+          <ul>
+            <li>Remote team leadership</li><li>Process improvement</li><li>Quality assurance</li>
+            <li>Distributed call centers</li><li>Project management</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Finance &amp; data</h3>
+          <ul>
+            <li>Commissions &amp; payroll</li><li>Accounts receivable</li><li>Data reconciliation</li>
+            <li>Excel &amp; QuickBooks</li><li>SQL &amp; MySQL</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Platforms</h3>
+          <ul>
+            <li>Salesforce</li><li>CaptivateIQ</li><li>RingCentral</li><li>Five9</li>
+            <li>NICE inContact</li><li>Google Workspace</li><li>Firebase</li><li>Git</li><li>GitHub</li><li>HubSpot</li>
+            <li>DayBack Calendar</li><li>Twilio</li><li>Podium</li><li>Mojo Auto Dialer</li><li>Aculynx</li>
+            <li>Contractor's Cloud</li><li>Google Calendar &amp; Maps</li><li>Google Developer &amp; Cloud Console</li>
+            <li>Claude</li><li>Copilot</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block contact" id="contact" aria-labelledby="contact-title">
+      <p class="label">Contact</p>
+      <h2 id="contact-title">Let's talk about your next team.</h2>
+      <p class="prose">Email or call me. I'm happy to send my resume and walk through any of these projects.</p>
+      <div class="contact-lines">
+        <div class="line">
+          <span class="val" id="email">tiffanyh9218@gmail.com</span>
+          <button type="button" data-copy="email">Copy email</button>
+        </div>
+        <div class="line">
+          <span class="val" id="phone">636-445-4901</span>
+          <button type="button" data-copy="phone">Copy phone</button>
+        </div>
+        <div class="line">
+          <span class="val">linkedin.com/in/tiffany-harris-597747441</span>
+          <a class="btn ghost" href="https://www.linkedin.com/in/tiffany-harris-597747441/" target="_blank" rel="noopener">Open LinkedIn</a>
+        </div>
+      </div>
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <span>Tiffany Harris · Saint Charles, MO · Remote</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('theme');
+  var toast = document.getElementById('toast');
+
+  // Hover to enlarge a live-work screenshot in an overlay
+  var zoom = document.createElement('div');
+  zoom.className = 'zoom';
+  zoom.hidden = true;
+  zoom.innerHTML = '<img alt="">';
+  document.body.appendChild(zoom);
+  var zoomImg = zoom.firstChild;
+  document.querySelectorAll('.shots img').forEach(function (img) {
+    img.addEventListener('mouseenter', function () {
+      zoomImg.src = img.getAttribute('src');
+      zoomImg.alt = img.alt;
+      zoom.hidden = false;
+    });
+    img.addEventListener('mouseleave', function () { zoom.hidden = true; });
+  });
+
+  // Theme: start from the OS setting; a saved choice wins if storage is available.
+  function currentTheme() {
+    return root.getAttribute('data-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+  function paintThemeButton() {
+    themeBtn.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark';
+  }
+  try {
+    var saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  paintThemeButton();
+  themeBtn.addEventListener('click', function () {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('portfolio-theme', next); } catch (e) {}
+    paintThemeButton();
+  });
+
+  // Case-study filters
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('.case');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      cards.forEach(function (card) {
+        card.hidden = !(f === 'all' || card.getAttribute('data-cat') === f);
+      });
+    });
+  });
+
+  // Copy buttons, with a text-selection fallback when the clipboard is blocked
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-copy');
+      var text = document.getElementById(id).textContent.trim();
+      var label = id === 'email' ? 'Email' : 'Phone';
+      function fallback() {
+        var range = document.createRange();
+        range.selectNodeContents(document.getElementById(id));
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        toast.textContent = label + ' selected. Press Cmd+C or Ctrl+C to copy.';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          toast.textContent = label + ' copied.';
+        }, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+  // Highlight the section in view in the header nav
+  var links = document.querySelectorAll('.top nav a[href^="#"]');
+  if ('IntersectionObserver' in window) {
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = map[entry.target.id];
+        if (link && entry.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+})();
+</script>
